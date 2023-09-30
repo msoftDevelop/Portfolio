@@ -4,235 +4,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohsin Ali - MERN Stack Developer</title>
     <link rel="stylesheet" href="output.css">
-
-    <title>MOHSIN ALI</title>
-
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 font-sans">
 
-    <!-- NavBar Start -->
-    <nav class="w-full h-[80px] bg-slate-800 text-white flex justify-between items-center ">
-        <div class="mx-4">
-            <h1 class="text-2xl">MOHSIN ALI <span class="text-xl border-b-2  ">Software Engineer</span></h1>
-        </div>
-        <div class="mx-2 uppercase hidden md:block">
-            <ul class="flex">
-                <li class="mx-4">
-                    <a class="hover:border-b-2" href="./index.html">Home</a>
-                </li>
-                <li class="mx-4">
-                    <a class="hover:border-b-2" href="#aboutme">About Me</a>
-                </li>
-                <li class="mx-4">
-                    <a class="hover:border-b-2" href="#skills">Skills</a>
-                </li>
-                <li class="mx-4">
-                    <a class="hover:border-b-2" href="#Projects">Projects</a>
-                </li>
-                <li class="mx-4">
-                    <a class="hover:border-b-2" href="#contact">Contact</a>
-                </li>
+    <!-- Navigation -->
+    <nav class="bg-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-500">Mohsin Ali</div>
+            <ul class="hidden md:flex space-x-4">
+                <li class="border-red-500 hover:border-b-2"><a href="#about" class="text-gray-700 hover:text-blue-500">About</a></li>
+                <li class="border-red-500 hover:border-b-2"><a href="#skills" class="text-gray-700 hover:text-blue-500">Skills</a></li>
+                <li class="border-red-500 hover:border-b-2"><a href="#portfolio" class="text-gray-700 hover:text-blue-500">Portfolio</a></li>
+                <li class="border-red-500 hover:border-b-2"><a href="#contact" class="text-gray-700 hover:text-blue-500">Contact</a></li>
             </ul>
-        </div>
-        <div class="text-6xl md:hidden ">
-            <a href="#">&#8801;</a>
+            <div class="md:hidden">
+                <button id="toggleMenu" class="text-gray-700 hover:text-blue-500">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </nav>
-    <!-- NavBar End -->
-    <!-- hero Section Start-->
-    <div class="relative bg-cover bg-center h-64 md:h-96 lg:h-screen flex items-center justify-center text-center">
-        <img src="https://img.freepik.com/free-vector/gradient-responsive-website-design_52683-89071.jpg?w=900&t=st=1695928732~exp=1695929332~hmac=e5ce5af4a1bdfdf0283a9040abb0ab4c4ed7e1fef75cc4416c55b8eada09b4a7"
-            alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-80">
-        <div class="relative z-10 text-gray-800">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">Hello, I'm a Website Developer
-            </h1>
-            <p class="text-xl md:text-2xl lg:text-3xl mb-8">Turning ideas into interactive websites</p>
-            <a href="#" class="bg-blue-500 text-black py-2 px-4 rounded hover:bg-blue-600 text-xl">Get in Touch</a>
-        </div>
-    </div>
-    <!-- Hero Section Ends -->
-    <!-- About Me  -->
-    <div  id="aboutme" class="mt-6 max-w-3xl mx-auto text-center mb-12">
-        <h2 class="text-3xl font-bold mb-2">About Me</h2>
-        <p class="text-gray-700">I'm a passionate web developer with a love for creating amazing user experiences.</p>
-    </div>
 
-    <div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-center mb-12">
-        <div class="w-48 h-48 mb-4 md:mb-0 mx-auto md:mr-8 rounded-full overflow-hidden">
-            <img src="./profile.png" alt="Profile Picture" class="w-full h-full object-cover">
-        </div>
-        <div class="text-left md:text-center">
-            <h3 class="text-xl font-bold mb-2">MOHSIN ALI</h3>
-            <p class="text-gray-700 mb-4">Full Stack Web Developer</p>
-            <p class="text-gray-700">I have a strong foundation in front-end and back-end technologies, and I'm always
-                eager to learn and implement new technologies to create efficient and user-friendly websites.</p>
-        </div>
-    </div>
-
-    <div class="max-w-3xl mx-auto">
-        <h3 class="text-2xl font-bold mb-2">Skills</h3>
-        <ul class="list-disc pl-4">
-            <li>HTML/CSS</li>
-            <li>JavaScript (ES6+)</li>
-            <li>React.js</li>
-            <li>Node.js</li>
-            <li>Express.js</li>
-            <li>SQL/NoSQL Databases</li>
-            <li>RESTful APIs</li>
-            <li>Responsive Web Design</li>
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobileMenu" class="md:hidden fixed inset-0 bg-white bg-opacity-90 z-50 hidden items-center justify-center">
+        <ul class="text-center">
+            <li><a href="#about" class="block py-2 text-2xl font-bold text-blue-500">About</a></li>
+            <li><a href="#skills" class="block py-2 text-2xl font-bold text-blue-500">Skills</a></li>
+            <li><a href="#portfolio" class="block py-2 text-2xl font-bold text-blue-500">Portfolio</a></li>
+            <li><a href="#contact" class="block py-2 text-2xl font-bold text-blue-500">Contact</a></li>
         </ul>
     </div>
-    <!-- Skills Section -->
 
-    <div id="skills" class="max-w-3xl mx-auto text-center mb-12 mt-5">
-        <h2 class="text-3xl font-bold mb-2">Skills Set</h2>
-        <p class="text-gray-700">Here are some of the skills I possess.</p>
-    </div>
-
-    <div class="max-w-3xl mx-auto">
-        <div class="mb-6">
-            <h3 class="text-xl font-bold mb-2">Web Development</h3>
-            <div class="relative pt-1">
-                <div class="flex mb-2 items-center justify-between">
-                    <div>
-                        <span
-                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
-                            HTML
-                        </span>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-xs font-semibold inline-block text-teal-600">
-                            90%
-                        </span>
-                    </div>
-                </div>
-                <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-teal-200">
-                    <div style="width:90%"
-                        class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-500">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Add more skills here using the same structure -->
-            <div class="relative pt-1">
-                <div class="flex mb-2 items-center justify-between">
-                    <div>
-                        <span
-                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
-                            CSS
-                        </span>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-xs font-semibold inline-block text-teal-600">
-                            70%
-                        </span>
-                    </div>
-                </div>
-                <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-teal-200">
-                    <div style="width:70%"
-                        class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-500">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Add more skill categories here using the same structure -->
-        <div class="relative pt-1">
-            <div class="flex mb-2 items-center justify-between">
-                <div>
-                    <span
-                        class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
-                        JavaScript
-                    </span>
-                </div>
-                <div class="text-right">
-                    <span class="text-xs font-semibold inline-block text-teal-600">
-                        70%
-                    </span>
-                </div>
-            </div>
-            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-teal-200">
-                <div style="width:70%"
-                    class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-500">
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- Project Section Start -->
-    <section id="Projects" class="mt-5 mx-5">
-        <div class="max-w-6xl mx-auto text-center mb-12">
-            <h2 class="text-3xl font-bold mb-2">Our Projects</h2>
-            <p class="text-gray-700">Check out some of our latest projects.</p>
-        </div>
-
-        <div class="flex flex-wrap justify-center">
-
-            <div class="max-w-xs w-full mx-4 mb-8 bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-psd/american-food-website-app-template_23-2148477329.jpg?w=1380&t=st=1695927732~exp=1695928332~hmac=b4c6b80c321bcda84d3a75281adfae7920cba399b9ebe6fe295e105a21b7860d"
-                    alt="Project 1" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2">Project Title 1</h3>
-                    <p class="text-gray-700 mb-4">A brief description of the project goes here. It should be catchy and
-                        informative.</p>
-                    <a href="#" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Learn More</a>
-                </div>
-            </div>
-
-            <div class="max-w-xs w-full mx-4 mb-8 bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-psd/various-web-printable-templates-with-screen_23-2148450117.jpg?w=1380&t=st=1695927808~exp=1695928408~hmac=92d2f16150239f21d633ac3d66b35c3120a1991f71d8c93c2ef13a5c05936015"
-                    alt="Project 2" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2">Project Title 2</h3>
-                    <p class="text-gray-700 mb-4">Another interesting project description can go here.</p>
-                    <a href="#" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Learn More</a>
-                </div>
-            </div>
-
-            <div class="max-w-xs w-full mx-4 mb-8 bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-vector/technology-landing-page-with-smartphone-photo_23-2148266830.jpg?w=900&t=st=1695927846~exp=1695928446~hmac=17ee4646d55c23213ee18c1fba5c760ac39a735d39a6b2b59ebfb68de6a0d808"
-                    alt="Project 3" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2">Project Title 3</h3>
-                    <p class="text-gray-700 mb-4">Describe the third project in a way that captures attention.</p>
-                    <a href="#" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Learn More</a>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-    <!-- Footer  -->
-    <footer id="contact" class="">
-        <div class="max-w w-full bg-white p-8 rounded shadow-lg">
-            <h2 class="text-2xl font-bold mb-6 text-center">Contact Us</h2>
-            <form>
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
-                    <input type="text" id="name" name="name" class="form-input w-full rounded border-gray-300 py-2 px-4"
-                        required>
-                </div>
-
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                    <input type="email" id="email" name="email"
-                        class="form-input w-full rounded border-gray-300 py-2 px-4" required>
-                </div>
-
-                <div class="mb-6">
-                    <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
-                    <textarea id="message" name="message"
-                        class="form-textarea w-full rounded border-gray-300 py-2 px-4 h-32" required></textarea>
-                </div>
-
-                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit</button>
-            </form>
-        </div>
+    <!-- Hero Section -->
         
+    <section class="bg-blue-500 text-grey h-screen flex flex-col justify-center text-center relative" style="background-image: url('https://img.freepik.com/free-photo/3d-rendering-website-hosting-concept_23-2149484783.jpg?w=740&t=st=1696040147~exp=1696040747~hmac=d35ffe6ed21f4d30d9f7e92b70e4fe65ddf42236b000b3fc03d5e264ec935f8d'); background-size: cover; background-position: center;">
+        <img src="./profile.png" alt="User" class="mx-auto w-32 h-32 object-cover rounded-full mb-4 shadow-lg">
+        <div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Mohsin Ali</h1>
+            <p class="text-xl md:text-2xl mb-8">MERN Stack Developer</p>
+            <a href="#contact"
+                class="bg-white text-blue-500 py-2 px-4 rounded-full text-xl hover:bg-blue-600 hover:text-white">Get in
+                Touch</a>
+        </div>
+       
+        
+    </section>
+
+   
+
+    <!-- About Section -->
+    <section id="about" class="py-12 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">About Me</h2>
+            <p class="text-lg mb-8">I'm a passionate MERN Stack developer with a love for creating interactive and
+                dynamic web applications.</p>
+            <a href="#contact" class="bg-blue-500 text-white py-2 px-4 rounded-full text-xl hover:bg-blue-600">Contact
+                Me</a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="px-4 py-12 bg-gray-200">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Front-end Development</h3>
+                    <p class="text-gray-700">HTML, CSS, JavaScript, React.js, Vue.js</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Back-end Development</h3>
+                    <p class="text-gray-700">Node.js, Express.js, MongoDB, SQL</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Tools & Frameworks</h3>
+                    <p class="text-gray-700">Git, Webpack, Bootstrap, Tailwind CSS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="flex justify-between px-10 py-12 bg-white">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+            <img class="w-full h-56 object-cover" src="https://img.freepik.com/free-vector/inspiration-technology-landing-page_23-2148278216.jpg?w=900&t=st=1695956389~exp=1695956989~hmac=465feebe3bb7ed7cd5b99991e8d82cccf84aeee1f5842a63c7ac24d2a39ec281" alt="Portfolio Item Image">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Portfolio Item Title</div>
+                <p class="text-gray-700 text-base">
+                    Description of the portfolio item goes here. You can provide additional details about the project or work.
+                </p>
+            </div>
+            <div class="px-6 py-4">
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Tag 1</span>
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Tag 2</span>
+                <!-- Add more tags as needed -->
+            </div>
+            <div class="px-6 py-4">
+                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">View Details</a>
+            </div>
+        </div>
+
+        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+            <img class="w-full h-56 object-cover" src="https://img.freepik.com/free-photo/3d-render-code-testing-functional-test-usability_107791-16607.jpg?w=1060&t=st=1695956442~exp=1695957042~hmac=1bc36ba29bccaf374c130b75e27db2e381958014388ecffddcf9d97b436ec34c" alt="Portfolio Item Image">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Portfolio Item Title</div>
+                <p class="text-gray-700 text-base">
+                    Description of the portfolio item goes here. You can provide additional details about the project or work.
+                </p>
+            </div>
+            <div class="px-6 py-4">
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Tag 1</span>
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Tag 2</span>
+                <!-- Add more tags as needed -->
+            </div>
+            <div class="px-6 py-4">
+                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">View Details</a>
+            </div>
+        </div>
+
+        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+            <img class="w-full h-56 object-cover" src="https://img.freepik.com/free-vector/gradient-responsive-website-design_23-2149496043.jpg?w=900&t=st=1695955146~exp=1695955746~hmac=151e133ff86f8e632f9a65027d10558f0225f9ec26420dbfc4f441378a9d2353" alt="Portfolio Item Image">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Portfolio Item Title</div>
+                <p class="text-gray-700 text-base">
+                    Description of the portfolio item goes here. You can provide additional details about the project or work.
+                </p>
+            </div>
+            <div class="px-6 py-4">
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Tag 1</span>
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Tag 2</span>
+                <!-- Add more tags as needed -->
+            </div>
+            <div class="px-6 py-4">
+                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">View Details</a>
+            </div>
+        </div>
+         
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 bg-blue-500 text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Contact Me</h2>
+            <p class="text-lg mb-8">Let's work together to bring your ideas to life. Feel free to reach out to me.</p>
+            <a href="mailto:mrmohsin13p@gmail.com"
+                class="bg-white text-blue-500 py-2 px-4 rounded-full text-xl hover:bg-white hover:text-blue-500">Email
+                Me</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <div class="container mx-auto">
+            &copy; 2023 Mohsin Ali. All Rights Reserved.
+        </div>
     </footer>
+
+    <!-- Script to toggle mobile menu -->
+    <script>
+        document.getElementById('toggleMenu').addEventListener('click', function () {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+    </script>
+
 </body>
 
 </html>
