@@ -17,7 +17,7 @@
         }
     
         .animated-heading {
-            animation: fadeIn 2.5s ease-in-out;
+            animation: fadeIn 3.5s ease-in-out;
         }
     </style>
     
@@ -55,6 +55,7 @@
 
     <!-- Mobile Menu (Hidden by default) -->
     <div id="mobileMenu" class="md:hidden fixed inset-0 bg-white bg-opacity-90 z-50 hidden items-center justify-center">
+        <button id="closeButton" class="absolute top-4 right-4 text-3xl font-bold text-blue-500">X</button>
         <ul class="text-center">
             <li><a href="#about" class="block py-2 text-2xl font-bold text-blue-500">About</a></li>
             <li><a href="#skills" class="block py-2 text-2xl font-bold text-blue-500">Skills</a></li>
@@ -62,22 +63,22 @@
             <li><a href="#contact" class="block py-2 text-2xl font-bold text-blue-500">Contact</a></li>
         </ul>
     </div>
+    
 
     <!-- Hero Section -->
 
     <section class="bg-blue-500 text-grey h-screen flex flex-col justify-center text-center relative"
-        style="background-image: url('https://img.freepik.com/free-photo/3d-rendering-website-hosting-concept_23-2149484783.jpg?w=740&t=st=1696040147~exp=1696040747~hmac=d35ffe6ed21f4d30d9f7e92b70e4fe65ddf42236b000b3fc03d5e264ec935f8d'); background-size: cover; background-position: center;">
-        <img src="./profile.png" alt="User" class="mx-auto w-32 h-32 object-cover rounded-full mb-4 shadow-lg">
-        <div>
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 animated-heading">Hi, I'm Mohsin Ali</h1>
-            <p class="text-xl md:text-2xl mb-8">MERN Stack Developer</p>
-            <a href="#contact"
-                class="bg-white text-blue-500 py-2 px-4 rounded-full text-xl hover:bg-blue-600 hover:text-white">Get in
-                Touch</a>
-        </div>
-
-
-    </section>
+    style="background-image: url('https://img.freepik.com/free-photo/3d-rendering-website-hosting-concept_23-2149484783.jpg?w=740&t=st=1696040147~exp=1696040747~hmac=d35ffe6ed21f4d30d9f7e92b70e4fe65ddf42236b000b3fc03d5e264ec935f8d'); background-size: cover; background-position: center;">
+    <img src="./profile.png" alt="User" class="mx-auto w-32 h-32 object-cover rounded-full mb-4 shadow-lg">
+    <div>
+        <h1 id="animatedHeading" class="text-4xl md:text-6xl font-bold mb-4 animated-heading">Hi, I'm Mohsin
+            Ali</h1>
+        <p class="text-xl md:text-2xl mb-8">MERN Stack Developer</p>
+        <a href="#contact"
+            class="bg-white text-blue-500 py-2 px-4 rounded-full text-xl hover:bg-blue-600 hover:text-white">Get in
+            Touch</a>
+    </div>
+</section>
 
     <!-- About Section -->
     <section id="about" class="py-12 bg-white">
@@ -227,6 +228,29 @@
         document.getElementById('toggleMenu').addEventListener('click', function () {
             document.getElementById('mobileMenu').classList.toggle('hidden');
         });
+        
+    document.getElementById('closeButton').addEventListener('click', function() {
+        document.getElementById('mobileMenu').classList.add('hidden');
+    });
+
+        
+        function changeHeading() {
+            const colors = ["red", "green", "blue", "purple"]; // Add your desired colors here
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            const heading = document.getElementById('animatedHeading');
+            heading.style.color = randomColor;
+        }
+
+        function animateHeading() {
+            changeHeading();
+            const heading = document.getElementById('animatedHeading');
+            heading.classList.remove('animated-heading');
+            void heading.offsetWidth; // Trigger a reflow
+            heading.classList.add('animated-heading');
+        }
+
+        setInterval(animateHeading, 3000); // Change heading every 3 seconds
+
     </script>
 
 </body>
